@@ -1,3 +1,50 @@
+
+/* Base line  */
 #root {
-  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Card body */
+.card {
+  width: 30%;
+  border: 2px solid #000;
+  flex-grow: 1;
+  min-height: 100px;
+  box-sizing: border-box;
+  margin: 0 5px 10px;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card > h1 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  height: 2rem;
+  margin: 1rem;
+}
+
+.card > img {
+  border: 0.5rem solid black;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-body > p {
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-top: 1rem;
+  padding: 2rem;
+}
+
+/* Footer */
+.footer-root {
+  padding: 2rem 0;
+}
+.footer-root > p {
+  margin: 1rem;
 }
