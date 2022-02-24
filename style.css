@@ -6,10 +6,30 @@
   box-sizing: border-box;
 }
 
+/* Search bar */
+.search-bar-root {
+  margin: 2rem 0 2rem 0.3rem;
+
+}
+
+.search-query {
+  /* height: 2rem; */
+  width: 14rem;
+  padding: 14px;
+  font-size: 18px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+.search-bar-root > p {
+  display: inline;
+  margin-left: 2rem;
+}
+
 /* Card body */
 .card {
   width: 30%;
-  border: 2px solid #000;
+  border: 1.5px solid #000;
   flex-grow: 1;
   min-height: 100px;
   box-sizing: border-box;
@@ -31,6 +51,7 @@
   margin-top: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  width: 82%;
 }
 
 .card-body > p {
