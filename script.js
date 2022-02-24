@@ -76,7 +76,7 @@ inputSearchEl.classList.add("search-query");
 inputSearchEl.setAttribute("type", "text");
 inputSearchEl.setAttribute("placeholder", "Search for any episode");
 const paragraphCounterEl = document.createElement("p");
-paragraphCounterEl.innerHTML = `Displaying ${allEpisodesCounter} / 0 episodes`;
+paragraphCounterEl.innerHTML = `Displaying ${allEpisodesCounter} / ${allEpisodesCounter} episodes`;
 divSearchEl.appendChild(inputSearchEl);
 divSearchEl.appendChild(paragraphCounterEl);
 document.body.prepend(divSearchEl);
@@ -93,8 +93,8 @@ const handleSearchQuery = (e) => {
   getEpisodeOfTvShows(filteredEpisodes);
 
   const filteredEpisodesCounter = filteredEpisodes.length;
-  const para = `${allEpisodesCounter} / ${filteredEpisodesCounter}`;
-  paragraphCounterEl.innerHTML = `Displaying ${para} episodes`;
+  const paragraphContent = `${allEpisodesCounter} / ${filteredEpisodesCounter}`;
+  paragraphCounterEl.innerHTML = `Displaying ${paragraphContent} episodes`;
 };
 
 inputSearchEl.addEventListener("keyup", handleSearchQuery);
