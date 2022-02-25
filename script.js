@@ -14,7 +14,7 @@ footerEl.append(paragraphEl);
 paragraphEl.appendChild(footerLinkEl);
 document.body.appendChild(footerEl);
 
-let allEpisodes = [];
+let allEpisodes = getAllEpisodes();
 const allEpisodesCounter = getAllEpisodes().length;
 
 const setup = () => {
@@ -98,5 +98,35 @@ const handleSearchQuery = (e) => {
 };
 
 inputSearchEl.addEventListener("keyup", handleSearchQuery);
+
+// Create select input component //
+const inputSelectEl = document.createElement("select");
+inputSelectEl.classList.add("select-query");
+inputSelectEl.setAttribute("id", "option");
+inputSelectEl.setAttribute("type", "select");
+divSearchEl.prepend(inputSelectEl);
+
+allEpisodes.forEach((episode) => {
+  const optionEl = document.createElement("option");
+  optionEl.value = episode.id;
+  optionEl.innerText = `S${episode.season
+    .toString()
+    .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
+    episode.name
+  }`;
+  inputSelectEl.append(optionEl);
+});
+
+// Check to see if selected episode id matches with any in the data if so call the render method with the found episode and render it to the webpage
+const selectedEpisode = document.getElementById("option");
+selectedEpisode.addEventListener("change", () => {
+  rootElem.innerHTML = "";
+  allEpisodes.find((episode) => {
+    if (selectedEpisode.value == episode.id) {
+      const { name, season, number, image, summary } = episode;
+      renderEpisodeToWebsite(name, season, number, image, summary);
+    }
+  });
+});
 
 window.onload = setup;

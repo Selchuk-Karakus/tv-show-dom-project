@@ -9,11 +9,11 @@
 /* Search bar */
 .search-bar-root {
   margin: 2rem 0 2rem 0.3rem;
-
 }
 
+
 .search-query {
-  /* height: 2rem; */
+  margin-left: 2rem;
   width: 14rem;
   padding: 14px;
   font-size: 18px;
@@ -24,6 +24,15 @@
 .search-bar-root > p {
   display: inline;
   margin-left: 2rem;
+}
+
+/* Select dropdown menu */
+.select-query {
+  width: 20rem;
+  padding: 14px;
+  font-size: 18px;
+  border: 1.5px solid black;
+  border-radius: 5px;
 }
 
 /* Card body */
