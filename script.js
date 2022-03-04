@@ -18,8 +18,19 @@ let allEpisodes = getAllEpisodes();
 const allEpisodesCounter = getAllEpisodes().length;
 
 const setup = () => {
-  allEpisodes = getAllEpisodes();
-  getEpisodeOfTvShows(allEpisodes);
+  createRequest(82).then((data) => {
+    getEpisodeOfTvShows(data);
+  });
+};
+
+// Make an API request to an end point //
+const createRequest = async (showId) => {
+  const URL = `https://api.tvmaze.com/shows/${showId}/episodes`;
+
+  return fetch(URL)
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((err) => console.log(err.message));
 };
 
 // Render each episode to the website //
@@ -47,17 +58,21 @@ const getEpisodeOfTvShows = (episodeList) => {
     imgCardEl.setAttribute("alt", `A image from ${name}`);
     divCardBodyEl = document.createElement("div");
     divCardBodyEl.classList.add("card-body");
+    buttonRemove = document.createElement("button");
+    buttonRemove.classList.add("button-remove");
+    buttonRemove.innerText = `Remove`;
     divCardEl.appendChild(divCardH1El);
     divCardEl.appendChild(imgCardEl);
+    divCardEl.append(buttonRemove);
     divCardEl.appendChild(divCardBodyEl);
 
     renderEpisodeToWebsite(name, season, number, image, summary);
   });
 
-  // Add and wait for action to remove the watched episode by clicking on corresponding image //
-  let imageEl = document.getElementsByClassName("card-img-top");
-  Array.from(imageEl).forEach((image) => {
-    image.addEventListener(
+  // Remove the watched episode by clicking on button //
+  let buttonEl = document.querySelectorAll("button");
+  Array.from(buttonEl).forEach((button) => {
+    button.addEventListener(
       "click",
       (e) => {
         let removeTarget = e.target.parentNode;
@@ -93,7 +108,7 @@ const handleSearchQuery = (e) => {
   getEpisodeOfTvShows(filteredEpisodes);
 
   const filteredEpisodesCounter = filteredEpisodes.length;
-  const paragraphContent = `${allEpisodesCounter} / ${filteredEpisodesCounter}`;
+  const paragraphContent = ` ${filteredEpisodesCounter} / ${allEpisodesCounter}`;
   paragraphCounterEl.innerHTML = `Displaying ${paragraphContent} episodes`;
 };
 
@@ -125,8 +140,20 @@ selectedEpisode.addEventListener("change", () => {
     if (selectedEpisode.value == episode.id) {
       const { name, season, number, image, summary } = episode;
       renderEpisodeToWebsite(name, season, number, image, summary);
+      paragraphCounterEl.innerHTML = `Displaying: <b>${name}</b> episode`;
     }
   });
+});
+
+// Add a View All button which redirects user to all episodes //
+const buttonBackEl = document.createElement("a");
+buttonBackEl.classList.add("button-back");
+buttonBackEl.innerText = `VIEW ALL`;
+divSearchEl.appendChild(buttonBackEl);
+buttonBackEl.addEventListener("click", () => {
+  setup();
+  paragraphCounterEl.innerHTML = `Displaying ${allEpisodesCounter} / ${allEpisodesCounter} episodes`;
+
 });
 
 window.onload = setup;
