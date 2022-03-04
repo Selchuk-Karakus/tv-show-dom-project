@@ -28,9 +28,19 @@ const createRequest = async (showId) => {
   const URL = `https://api.tvmaze.com/shows/${showId}/episodes`;
 
   return fetch(URL)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      return response.json();
+    })
     .then((data) => data)
-    .catch((err) => console.log(err.message));
+    .catch((error) =>
+      console.error(
+        "There has been a problem with your fetch operation:",
+        error
+      )
+    );
 };
 
 // Render each episode to the website //
@@ -153,7 +163,6 @@ divSearchEl.appendChild(buttonBackEl);
 buttonBackEl.addEventListener("click", () => {
   setup();
   paragraphCounterEl.innerHTML = `Displaying ${allEpisodesCounter} / ${allEpisodesCounter} episodes`;
-
 });
 
 window.onload = setup;
