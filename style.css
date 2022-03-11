@@ -1,4 +1,3 @@
-
 /* Base line  */
 #root {
   display: flex;
@@ -10,7 +9,6 @@
 .search-bar-root {
   margin: 2rem 0 2rem 0.3rem;
 }
-
 
 .search-query {
   margin-left: 2rem;
@@ -38,9 +36,7 @@
 
 .select-query-show {
   margin-right: 2rem;
-
 }
-
 
 /* Card body */
 .card {
@@ -90,16 +86,16 @@
   font-size: 1.5rem;
   width: 75%;
   cursor: pointer;
-
 }
 
 .button-back {
   background-color: rgb(10, 96, 96);
   border-radius: 5px;
-   color: white;
-   font-size: 1.1rem;
-   padding: 14px;
-   margin:auto;
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px;
+  margin: auto;
+  cursor: pointer;
 }
 
 /* Footer */
