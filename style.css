@@ -24,16 +24,23 @@
 .search-bar-root > p {
   display: inline;
   margin: 2rem;
+  padding-right: 5rem;
 }
 
 /* Select dropdown menu */
 .select-query {
-  width: 20rem;
+  width: 16rem;
   padding: 14px;
   font-size: 18px;
   border: 1.5px solid black;
   border-radius: 5px;
 }
+
+.select-query-show {
+  margin-right: 2rem;
+
+}
+
 
 /* Card body */
 .card {
