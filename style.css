@@ -1,3 +1,107 @@
+/* Base line  */
 #root {
-  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Search bar */
+.search-bar-root {
+  margin: 2rem 0 2rem 0.3rem;
+}
+
+.search-query {
+  margin-left: 2rem;
+  width: 14rem;
+  padding: 14px;
+  font-size: 18px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+.search-bar-root > p {
+  display: inline;
+  margin: 2rem;
+  padding-right: 5rem;
+}
+
+/* Select dropdown menu */
+.select-query {
+  width: 16rem;
+  padding: 14px;
+  font-size: 18px;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+.select-query-show {
+  margin-right: 2rem;
+}
+
+/* Card body */
+.card {
+  width: 30%;
+  border: 1.5px solid #000;
+  flex-grow: 1;
+  min-height: 100px;
+  box-sizing: border-box;
+  margin: 0 5px 10px;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card > h1 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  height: 2rem;
+  margin: 2rem;
+}
+
+.card > img {
+  border: 0.5rem solid black;
+  margin-top: 1rem;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.card-body > p {
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-top: 1rem;
+  padding: 4rem;
+}
+
+/* Button */
+.button-remove {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 12px;
+  background-color: rgb(28, 25, 25);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.5rem;
+  width: 75%;
+  cursor: pointer;
+}
+
+.button-back {
+  background-color: rgb(10, 96, 96);
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px;
+  margin: auto;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer-root {
+  padding: 2rem 0;
+}
+.footer-root > p {
+  margin: 1rem;
 }
